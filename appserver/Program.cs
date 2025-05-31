@@ -11,7 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 
 Console.WriteLine("🚀 Initializing MCP Server...");
-Console.WriteLine("http://localhost:5000/sse");
+Console.WriteLine("http://localhost:5000/mcp");
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddMcpServer()
@@ -21,7 +21,7 @@ builder.Services.AddMcpServer()
 
 var app = builder.Build();
 app.MapGet("/", () => "✅ MCP Server is running");
-app.MapMcp();
+app.MapMcp("/mcp");
 app.Run();
 
 Console.WriteLine("🛑 MCP Server shutdown.");
